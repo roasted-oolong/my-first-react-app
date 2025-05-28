@@ -9,12 +9,22 @@ function App() {
   return (
     <>
       <h1>Animals: </h1>
-      <ul>
-        {animals.map((animal) => {
-          return <li key={animal}>{animal}</li>
-        })}
-      </ul>
+      <List animals={animals} />
     </>
+  )
+}
+
+function ListItem(props) {
+  return <li>{props.animal}</li>
+}
+
+function List(props) {
+  return (
+    <ul>
+      {props.animals.map((animal) => {
+        return <ListItem key={animal} animal={animal} />
+      })}
+    </ul>
   )
 }
 
